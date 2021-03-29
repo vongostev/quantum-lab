@@ -1,10 +1,9 @@
 # Quantum-lab
-Tested on ubuntu 20.04.
+Tested on Windows 10 Pro 20H2.
 
 ## Environment setup
 1. Install anaconda: https://www.anaconda.com/products/individual
-2. Install direnv: https://direnv.net/
-3. Initialize shell for usage with conda
+2. Open Anaconda Prompt to use a command line with conda
 
 ```
 $ conda init
@@ -13,46 +12,30 @@ $ conda init
 4. Clone this repo
 
 ```
-$ git clone https://github.com/artgromov/quantum-lab.git
+$ git clone https://github.com/vongostev/quantum-lab.git
 ```
 
-5. Create and setup env
+5. Create, activate, and setup env
 
 ```
-$ cd quantum
-$ direnv allow
+$ conda env create -f environment.yml
+$ conda activate quantum-lab 
 ```
 
 6. Install conda env jupyter-lab kernel
 
 ```
-$ ipython kernel install --name quantum-lab --display-name 'Quantum Lab' --user
+$ ipython kernel install --name quantum-lab --display-name Quantum-Lab --user
 ```
-
-## Environment usage after setup
-You can change to quantum-lab dir to activate env and run any code directly.
-
-```
-$ cd quantum-lab
-direnv: loading ~/quantum-lab/.envrc
-direnv: export +CONDA_PREFIX_1 ~CONDA_DEFAULT_ENV ~CONDA_PREFIX ~CONDA_SHLVL ~PATH
-```
-
-Or just start jupyter-lab and run notebook files with "Quantum Lab" kernel.
 
 ## IBMQ credentials setup
 1. Create account on https://quantum-computing.ibm.com/
-2. Create `~/.qiskit directory` if not present.
-3. Add `ibmq` section to `~/.qiskit/qiskitrc` file
+2. Replace <your token here> string in save_ibmq_token.py with your actual API token from https://quantum-computing.ibm.com/
+3. Run save_ibmq_token.py
 
 ```
-[ibmq]
-token = <your token here>
-url = https://auth.quantum-computing.ibm.com/api
-verify = True
+$ python save_ibmq_token.py
 ```
-
-replace <your token here> string with your actual API token from https://quantum-computing.ibm.com/
 
 4. Done. Now you can use following code to access IBMQ:
     
@@ -60,6 +43,16 @@ replace <your token here> string with your actual API token from https://quantum
 import helpers
 provider = helpers.get_ibmq_provider()
 ``` 
+
+
+## Environment usage after setup
+1. Start Jupyter notebook
+
+```
+$ jupyter notebook
+```
+
+2. Change kernel to "Quantum-Lab"
     
 ## Useful links
 - [Getting started with Qiskit](https://qiskit.org/documentation/getting_started.html)
