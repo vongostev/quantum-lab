@@ -12,5 +12,9 @@ dependencies:
   - scikit-learn
   - scipy
   - sympy
+  - pip
   - pip:
     - qiskit[vizualization]
+	- pennylane
+	- pennylane-qiskit
+	- pennylane-sf 
