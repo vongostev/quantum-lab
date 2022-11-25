@@ -15,6 +15,6 @@ dependencies:
   - pip
   - pip:
     - qiskit[vizualization]
-	- pennylane
-	- pennylane-qiskit
-	- pennylane-sf 
+    - pennylane
+    - pennylane-qiskit
+    - pennylane-sf 
